@@ -16,9 +16,7 @@ export default function FilteredNews({ params }: { params: { year: string } }) {
     if (news && news.length > 0) {
       newsContent = <NewsList news={news} />;
     }
-  }
-
- 
+  } 
 
   if (filterYear && !getAvailableNewsYears().includes(+filterYear)) {
     throw new Error("Invalid Path");
