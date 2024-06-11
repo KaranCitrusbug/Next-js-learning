@@ -1,0 +1,5 @@
+.header img {
+    width: 5rem;
+    height: 5rem;
+    filter: drop-shadow(0 0 3px #000);
+  }
