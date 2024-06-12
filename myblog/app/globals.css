@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   background-color: #354f52;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.view-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: #003049;
+}
+.thumb-up-button{
+  background-color: transparent;
+  border: none;
+}
+.thumb-up-button svg{
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: transparent;
+  stroke: #003049;
+}
+.thumb-up-button.filled svg {
+  fill: #003049;
+}
+.thumb-down-button{
+  background-color: transparent;
+  border: none;
+}
+.thumb-down-button svg{
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: transparent;
+  stroke: #003049;
+}
+.thumb-down-button.filled svg {
+  fill: #003049;
+}
+.singleBlog {
+ height: calc(100vh - (300px));
 }
