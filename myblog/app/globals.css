@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'react-toastify/dist/ReactToastify.css';
+
 
 body {
   background-color: #354f52;
@@ -42,4 +44,24 @@ body {
 }
 .singleBlog {
  height: calc(100vh - (300px));
+}
+.delete-button{
+  background-color: transparent;
+  border: none;
+}
+.delete-button svg{
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: transparent;
+  stroke: #000000;
+}
+.edit-button{
+  background-color: transparent;
+  border: none;
+}
+.edit-button svg{
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #000000;
+  stroke: #000000;
 }

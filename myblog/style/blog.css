@@ -8,3 +8,7 @@
   max-width:100%;
   max-height: 350px;
 }
+.blagPage a{
+  color: rgb(35, 35, 128);
+  text-decoration: underline;
+}
