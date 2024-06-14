@@ -4,17 +4,22 @@ import { Form, Input, Button, Checkbox } from "antd";
 import { addBlogs } from "@/service/blogService";
 import { ToastSuccess } from "@/components/ToastMessage";
 import { blogDetailProps } from "@/types/blogType";
+import { useRouter } from "next/navigation";
 
 
 export default function AddBlogs() {
   const [form] = Form.useForm();
   const [tags, setTags] = useState<string[]>([]);
+  const route = useRouter()
 
   const onFinish = async (values: blogDetailProps) => {
-    const newBlog = await addBlogs(values);
+    console.log(values)
+    const newBlog = await addBlogs({...values, tags});
     ToastSuccess("Blog added successfully:");
     form.resetFields();
     setTags([]);
+    route.push('/')
+
   };
 
   const onCheckboxChange = (checkedValues: string[]) => {
@@ -27,6 +32,7 @@ export default function AddBlogs() {
         form={form}
         className="w-96 m-auto bg-[#84a98c] p-5 rounded"
         onFinish={onFinish}
+        style={{width :"50%"}}
       >
         <Form.Item
           label="Blog Title"
