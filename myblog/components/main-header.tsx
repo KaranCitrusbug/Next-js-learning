@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import logo from '@/assets/image.png';
-import SearchBar from './serchbar';
 
 import '@/style/header-style.css'
 
@@ -17,7 +16,7 @@ export default function Header() {
       <nav className='my-auto'>
         <ul className='flex'>
           <li className='xl:block lg:block md:block sm:hidden hidden'>
-          <SearchBar/>            
+                  
           </li>
           <li className='bg-[#cad2c5] px-5 py-2 rounded-lg hover:bg-[#84a98c] ml-5'>
             <Link  href="/posts/create" className='font-mono text-lg font-medium ' >Add Blog</Link>

@@ -3,11 +3,10 @@ import React, { useEffect, useState } from "react";
 
 import { Form, Input, Button, Checkbox } from "antd";
 import { blogDetailProps } from "@/types/blogType";
-import { editBlogs,  getSingleBlog } from "@/service/blogService";
-import { blogAddProps } from "@/types/blogAddprops";
+import { editBlogs } from "@/service/blogService";
 import { ToastSuccess } from "@/components/ToastMessage";
-import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/navigation";
+import 'react-toastify/dist/ReactToastify.css';
 export default function EditPost({ params }: { params: { id: string } }) {
   const userId = params.id
   console.log(userId)
@@ -20,7 +19,7 @@ export default function EditPost({ params }: { params: { id: string } }) {
     try {
       const editBlog = await editBlogs(values )
       ToastSuccess("Blog Edited successfully")
-      // route.push('/')
+      route.push('/')
 
     } catch (error) {
       console.log(error)
@@ -36,6 +35,7 @@ export default function EditPost({ params }: { params: { id: string } }) {
     const blogDetail = await blog.json()
     
     form.setFieldsValue({
+      id : blogDetail.id,
       title: blogDetail.title,
       body: blogDetail.body,
       image: blogDetail.image,
@@ -55,6 +55,13 @@ export default function EditPost({ params }: { params: { id: string } }) {
         onFinish={onFinish}
         style={{width :"50%"}}
       >
+         <Form.Item
+          label="Blog Id"
+          name="id"
+          rules={[{ required: true, message: "Please input the id!" }]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           label="Blog Title"
           name="title"

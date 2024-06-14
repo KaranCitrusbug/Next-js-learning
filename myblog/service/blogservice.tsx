@@ -5,7 +5,9 @@ const api = process.env.NEXT_PUBLIC_NEXT_APP_BLOG_API_ENDPOINT as string;
 
 
 export async function getBlogs() {
-  const response = await fetch(api);
+  const response = await fetch(api,{
+    cache:"no-store"
+  });
   const blogs = await response.json();
   return blogs;
 }
@@ -27,7 +29,8 @@ export async function addBlogs(data: blogDetailProps) {
 
 export async function editBlogs(values: blogDetailProps) {
 
-  return await fetch(`edit`,{
+  console.log(JSON.stringify(values))
+  return await fetch(`${api}/${values.id}/edit`,{
     method:"PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -36,5 +39,19 @@ export async function editBlogs(values: blogDetailProps) {
 
   }
   )
+  
+}
+
+export async function deleteBlogs(id :string){
+  const response=  await fetch(`${api}/${id}`,{
+    method:"DELETE",
+  })
+  return response.json()
+}
+
+export async function queryBlog(values : string){
+  const allBlogs = await getBlogs();
+  const searchBlog = allBlogs.filter((blog:blogDetailProps)=> blog.tags.includes(values))
+  return searchBlog
   
 }

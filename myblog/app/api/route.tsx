@@ -26,9 +26,3 @@ export async function POST(request : Request){
     })
 }
 
-export async function DELETE({params} : {params : {id:string}}) {
-    const index = posts.findIndex((post)=>post.id === parseInt(params.id))
-    const deleteBlog = posts[index];
-    posts.splice(index,1);
-    return Response.json(deleteBlog)
-}

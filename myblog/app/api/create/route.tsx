@@ -7,7 +7,7 @@ export async function POST(request : Request){
         id : posts.length + 1,
         title : blog.title,
         body : blog.body,
-        image : "https://picsum.photos/id/57/200/300",
+        image : `https://picsum.photos/id/${posts.length + 1}/200/300`,
         tags : blog.tags,
         reactions : { likes : 0 , dislikes : 0},
         views : 0,

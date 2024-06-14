@@ -1,6 +1,14 @@
-export default function DeleteIcon(){
+"use client"
+import React from "react";
+
+interface DeleteProps{
+  blogId : string | undefined,
+  onDelete : (id:string)=> void;
+}
+
+ const DeleteIcon:React.FC<DeleteProps>= ({blogId,onDelete})=>{
     return(
-        <button className="delete-button">
+        <button className="delete-button" onClick={()=> onDelete(blogId!)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 50 60"
@@ -12,3 +20,5 @@ export default function DeleteIcon(){
       </button>
     )
 }
+
+export default DeleteIcon
