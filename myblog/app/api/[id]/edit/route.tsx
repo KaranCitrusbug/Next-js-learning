@@ -11,8 +11,10 @@ export async function PATCH(
 ){
 
     const data = await request.json()
-    const {title,body,image} = data
+    const {title,body,image,tags} = data
        const index = posts.findIndex((post)=>post.id === parseInt(params.id))
     posts[index].title = title
+    posts[index].body = body
+    posts[index].tags = tags
     return Response.json(posts[index])
 }
